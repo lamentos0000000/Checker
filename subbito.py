@@ -1,20 +1,22 @@
 from funcs import *
+import stdiomask
 
 print()
 print()
-print(f"Select which site you want to target:")
-print(f"     [1] Subito.it")
+print(bcolors.BOLD + bcolors.WARNING + "Select which site you want to target:")
+print(bcolors.ENDC + "     [1] Subito.it")
 print()
 
-choose = int(input(f"Insert number: "))
+choose = int(input(bcolors.BOLD + bcolors.WARNING + "Insert number: " + bcolors.ENDC))
 print()
 
-url = input(f"Insert target URL: ")
-timeout = int(input(f"Insert timeout (in seconds): "))
+url = input(bcolors.BOLD + bcolors.WARNING + "Insert target URL: " + bcolors.ENDC)
+timeout = int(input(bcolors.BOLD + bcolors.WARNING + "Insert timeout (in seconds): " + bcolors.ENDC))
 print()
-sendEmail = input(f"Insert the from email: ")
-passw = input(f"Insert it's password: ")
-recvEmail = input(f"Destination email: ")
+sendEmail = input(bcolors.BOLD + bcolors.WARNING + "Insert the from email: " + bcolors.ENDC)
+print(bcolors.BOLD + bcolors.WARNING + "Insert it's password: " + bcolors.ENDC, end="")
+passw = stdiomask.getpass(prompt="", mask="*")
+recvEmail = input(bcolors.BOLD + bcolors.WARNING + "Destination email: " + bcolors.ENDC)
 
 
 if choose == 1:

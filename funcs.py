@@ -3,6 +3,17 @@ import time
 from datetime import datetime
 import smtplib
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 def send_email(sender, recv, passw, link):
     senderMail = sender
     recvMail = recv
@@ -50,11 +61,11 @@ def subito(url, timeout, sMail, rMail, passw):
 
                 try:
                     send_email(sender=sMail, recv=rMail, passw=passw, link=refLink)
-                    print(f"[+] New link found, check the proper links file. Email sent.")
+                    print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email sent.")
                 except:
-                    print(f"[+] New link found, check the proper links file. Email cannot be sent.")
+                    print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email cannot be sent.")
             else:
-                print(f"[-] No new links has been found.")
+                print(bcolors.OKBLUE + "[-]" + bcolors.ENDC + bcolors.BOLD + " No new links has been found.")
 
     except Exception as ex:
         print(f"{ex}")

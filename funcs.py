@@ -62,9 +62,9 @@ def subito(url, timeout, sMail, rMail, passw):
                 linkList.append(refLink)
 
                 try:
-                    print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email sent.")
-                    toast.show_toast("New link", "A new link has been found", duration=1, icon_path="icon.ico")
                     send_email(sender=sMail, recv=rMail, passw=passw, link=refLink)
+                    print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email sent.")
+                    toast.show_toast("New link", "A new link has been found", duration=3, icon_path="icon.ico")
                 except:
                     print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email cannot be sent.")
             else:

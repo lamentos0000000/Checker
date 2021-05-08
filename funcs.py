@@ -2,6 +2,7 @@ import requests
 import time
 from datetime import datetime
 import smtplib
+from win10toast import ToastNotifier
 
 class bcolors:
     HEADER = '\033[95m'
@@ -34,6 +35,7 @@ def subito(url, timeout, sMail, rMail, passw):
     subitoLinksFile = open("SubitoLinks.txt", "w")
     target = "<div class=\"items__item\">"
     linkList = []
+    toast = ToastNotifier()
 
     try:
 
@@ -60,8 +62,9 @@ def subito(url, timeout, sMail, rMail, passw):
                 linkList.append(refLink)
 
                 try:
-                    send_email(sender=sMail, recv=rMail, passw=passw, link=refLink)
                     print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email sent.")
+                    toast.show_toast("New link", "A new link has been found", duration=1, icon_path="icon.ico")
+                    send_email(sender=sMail, recv=rMail, passw=passw, link=refLink)
                 except:
                     print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email cannot be sent.")
             else:

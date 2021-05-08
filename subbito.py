@@ -11,6 +11,7 @@ print()
 
 url = input(f"Insert target URL: ")
 timeout = int(input(f"Insert timeout (in seconds): "))
+print()
 sendEmail = input(f"Insert the from email: ")
 passw = input(f"Insert it's password: ")
 recvEmail = input(f"Destination email: ")

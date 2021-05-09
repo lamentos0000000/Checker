@@ -72,9 +72,11 @@ def subito(url, timeout, sMail, rMail, passw):
 
                     if osName == "Windows":
                         toast.show_toast("New link", "A new link has been found", duration=3, icon_path="icon.ico")
-
                 except:
                     print(bcolors.WARNING + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email cannot be sent.")
+
+                    if osName == "Windows":
+                        toast.show_toast("New link", "A new link has been found", duration=3, icon_path="icon.ico")
             else:
                 print(bcolors.OKBLUE + "[-]" + bcolors.ENDC + bcolors.BOLD + " No new links has been found.")
 

@@ -69,12 +69,9 @@ def subito(url, timeout, sMail, rMail, passw):
                 try:
                     send_email(sender=sMail, recv=rMail, passw=passw, link=refLink) # riga 21
                     print(bcolors.OKGREEN + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email sent.")
-
-                    if osName == "Windows":
-                        toast.show_toast("New link", "A new link has been found", duration=3, icon_path="icon.ico")
                 except:
                     print(bcolors.WARNING + "[+]" + bcolors.ENDC + bcolors.BOLD + " New link found, check the proper links file. Email cannot be sent.")
-
+                finally:
                     if osName == "Windows":
                         toast.show_toast("New link", "A new link has been found", duration=3, icon_path="icon.ico")
             else:
